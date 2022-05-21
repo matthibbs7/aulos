@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import "@fontsource/nunito";
+import '@fontsource/inter';
 
 export const theme = extendTheme({
   colors: {
@@ -11,6 +12,9 @@ export const theme = extendTheme({
   },
   fonts: {
     body: "Nunito",
+    brand: {
+        inter: "Inter",
+    }
   },
   styles: {
     global: () => ({
