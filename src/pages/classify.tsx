@@ -37,14 +37,8 @@ const classify: NextPage = () => {
       
     </Flex>
     <ImageUpload selectedFile={selectedFile} onSelectImage={onSelectImage} setSelectedFile={setSelectedFile} />
-    <Flex justifyContent="center" padding="6px 0px" width="60%" margin="auto">
-      <Text color="white" fontSize="18pt">Click the button above to upload an image of a watch so you can identify the brand</Text>
-      
-    </Flex>
-    <Flex justifyContent="center" padding="6px 0px" width="60%" margin="auto">
-      <Text color="white" fontSize="18pt">This website uses what is called a Machine Learning Image Classification model that is trained on popular watch brands to give the probabilites that a given image is of a certain watch brand. Price estimation works by using a Regression Model.</Text>
-      
-    </Flex>
+    
+    
     
     </>
   )
