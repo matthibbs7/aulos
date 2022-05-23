@@ -11,6 +11,7 @@ const classify: NextPage = () => {
   const [selectedFile, setSelectedFile] = useState<string>();
 
   const onSelectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(event)
     const reader = new FileReader()
 
     if (event.target.files?.[0]) {

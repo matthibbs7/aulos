@@ -11,18 +11,20 @@ import {
     Button
   } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons';
+import { useSetRecoilState } from 'recoil';
+import { authModalState } from '../../atoms/authModalAtom';
 
 const LoginButton:React.FC = () => {
-    
+    const setAuthModalState = useSetRecoilState(authModalState)
 
     return (
         <Menu  >
-            <MenuButton _focus={{outline: 'none'}} color="white" bg="brand.400" borderRadius="none" height="35px" as={Button} rightIcon={<ChevronDownIcon />}>
+            <MenuButton _focus={{outline: 'none'}} color="black" bg="brand.400" borderRadius="10px" height="35px" as={Button} rightIcon={<ChevronDownIcon />} >
                 Please log in to continue
             </MenuButton>
-            <MenuList  >
-                <MenuItem>Login</MenuItem>
-                <MenuItem>Create Account</MenuItem>
+            <MenuList borderRadius="10px" >
+                <MenuItem onClick={() => setAuthModalState({ open: true, view: 'login' })}>Login</MenuItem>
+                <MenuItem onClick={() => setAuthModalState({ open: true, view: 'signup' })}>Create Account</MenuItem>
                 
             </MenuList>
         </Menu>

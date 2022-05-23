@@ -8,17 +8,16 @@ const Navbar:React.FC = () => {
     const router = useRouter()
     return (
         <>
-            <Flex style={{ background: '#222324'}} height="80px" padding="0px 20px">
+            <Flex style={{ background: 'white'}} height="42px" padding="0px 20px">
                 <Flex>
-                    <Image src="/images/watchlogo.png" height="60px" alignSelf='center'/>
-                    <Text alignSelf="center" onClick={() => {router.push('/')}} _hover={{cursor: "pointer"}} color="white" fontSize="26pt"  fontWeight="900">Aulos.io</Text>
+                    {/* <Image src="/images/watchlogo.png" height="60px" alignSelf='center'/> */}
+                    <Text alignSelf="center" onClick={() => {router.push('/')}} _hover={{cursor: "pointer"}} color="#001220" fontSize="22pt"  fontWeight="900" mt={3} ml={5}>Aulos.io</Text>
+                    <Icon onClick={() => {window.location.assign('https://github.com/matthibbs7/aulos')} } _hover={{cursor: "pointer"}} color="black" mt={3} ml={2} fontSize="18pt" alignSelf="center" as={GoMarkGithub} />
                 </Flex>
-                <Icon onClick={() => {window.location.assign('https://github.com/matthibbs7/aulos')} } _hover={{cursor: "pointer"}} mr={4} marginLeft="auto" color="white" fontSize="22pt" alignSelf="center" as={GoMarkGithub} />
-            </Flex>
-            <Flex bg="#292a2c" height="35px" padding="6px 12px">
-                <Flex alignItems='center' marginLeft='auto'>
+                <Flex alignSelf="center" marginLeft="auto" width="230px" mt={2} border="0.5px solid black" borderRadius="10px">
                     <LoginButton />
                 </Flex>
+                
             </Flex>
         </>
     )
