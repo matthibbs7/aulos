@@ -35,13 +35,13 @@ const Home: NextPage = () => {
   return (
     <>
     <div style={{aspectRatio: '700/50', width: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', backgroundImage: "url('/images/waves4.svg')"}}></div>
-    <Flex backgroundBlendMode="color-burn" width="70%" justifyContent="center" margin="auto" flexDirection="column" bg="white" borderRadius="20px" padding="30px" marginTop="80px" border="3px solid" borderColor="#715df1">
+    <Flex backgroundBlendMode="color-burn" width="80%" maxWidth="740px" justifyContent="center" margin="auto" flexDirection="column" bg="white" borderRadius="20px" padding="30px" marginTop="80px" border="3px solid" borderColor="#715df1">
       <Flex width="100%" mb={5}>
-        <Flex width="100%" justifyContent='center' alignItems="center">
+        <Flex width="100%" justifyContent='center' alignItems="center" flexDirection="row">
           <Twemoji options={{ className: 'twemoji' }}>
             <p style={{ justifyContent: 'center', display: 'inline-block', width: 'auto', height: '1em', verticalAlign: "50px"}}>👋</p>
           </Twemoji>
-          <Text color="black" ml={5} justifyContent='center' fontSize="38pt" fontWeight={900} >Welcome to</Text><Text ml={3} justifyContent='center'  fontSize="38pt" color="black" fontWeight={900} > Aulos.io</Text>
+          <Text textAlign="center" mr={10} color="black" ml={5} justifyContent='center' style={{fontSize: 'min(38pt, 8vw)'}} fontWeight={900} >Welcome to Aulos.io</Text>
         </Flex>
         
       </Flex>

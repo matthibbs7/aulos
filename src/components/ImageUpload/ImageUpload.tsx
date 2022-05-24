@@ -120,15 +120,15 @@ const ImageUpload:React.FC<ImageUploadProps> = ({ selectedFile, onSelectImage, s
         <>
         {selectedFile && isResults && 
             
-            <Flex justifyContent="center" margin="auto" height="400px" width="700px" bg="white" borderRadius="25px">
+            <Flex justifyContent="center" margin="auto" height="400px" maxWidth="700px" width="80%" bg="white" borderRadius="25px">
 
                 <Image alignSelf="center" mb={14} src={selectedFile} maxWidth="250px" maxHeight="200px" mr={5} ml={2} border="5px solid black" />
-                <Flex direction="column" alignSelf="center">
+                <Flex direction="column" alignSelf="center" width="50%" maxWidth="500px">
                     <Flex direction="row" justifyContent="center" alignItems="center" mb={5}>
                     <Twemoji options={{ className: 'twemoji' }}>
                     <p style={{ justifyContent: 'center', display: 'inline', width: 'auto', height: '1em'}}>⌚</p>
                     </Twemoji>
-                    <Text marginLeft="4px" display="inline" fontWeight={700} width="320px" fontSize="30pt" fontFamily="brand.inter">This watch 
+                    <Text marginLeft="4px" display="inline" fontWeight={700} width="320px"  fontFamily="brand.inter" style={{fontSize: "min(4vw, 36px)"}}>This watch 
                     is a:</Text>
                     </Flex>
                     <Divider />
@@ -150,17 +150,19 @@ const ImageUpload:React.FC<ImageUploadProps> = ({ selectedFile, onSelectImage, s
 
         :
 
-        <Flex direction="column" alignItems="center" justifyContent="center" height="400px" width="1000px" margin="auto"  >
+        <Flex direction="column" alignItems="center" justifyContent="center" height="400px" width="100%" margin="auto"  >
         {(selectedFile) ? (
-            <>
-                <Image mt={10} src={selectedFile} maxWidth="400px" maxHeight="280px" />
-                <Stack mt={8} direction="row">
-                    <Button isLoading={loading} onClick={predictImage}>PREDICT!</Button>
-                    <Button onClick={() => {setSelectedFile(""); setIsResults(false)}}>New Image</Button>
-                </Stack>
+            <Flex bg="white" direction="column" width="70%" maxWidth="500px" height="500px" justifyContent="center" margin="auto" borderRadius="25px" border="2px solid" borderColor="#715df1">
+                <Text fontWeight={800} fontSize="20pt" textAlign="center">Image Selected:</Text>
+                <Divider width="250px" justifySelf="center" alignSelf="center" />
+                <Image border="3px solid" mt={5} src={selectedFile} maxWidth="250px" maxHeight="200px" alignSelf="center" />
+                <Flex justifyContent="center" mt={5} >
+                    <Button color="white" bg="#715df1" width="200px" height="50px" isLoading={loading} onClick={predictImage} mr={3}>PREDICT!</Button>
+                    <Button  width="90px" height="50px" onClick={() => {setSelectedFile(""); setIsResults(false)}}>New Image</Button>
+                </Flex>
 
                 
-            </>
+            </Flex>
         ) : (
             <>
             <Flex {...getRootProps()} height="280px" width="400px" alignItems="center" justifyContent="center" border="5px dashed white" bg={isDragActive ? "#a6c9f7" : "#9D84F6"}>
