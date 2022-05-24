@@ -35,7 +35,7 @@ const Home: NextPage = () => {
   return (
     <>
     <div style={{aspectRatio: '700/50', width: '100%', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', backgroundImage: "url('/images/waves4.svg')"}}></div>
-    <Flex backgroundBlendMode="color-burn" width="70%" justifyContent="center" margin="auto" flexDirection="column" bg="white" borderRadius="20px" padding="30px" marginTop="80px" border="1px dashed navy">
+    <Flex backgroundBlendMode="color-burn" width="70%" justifyContent="center" margin="auto" flexDirection="column" bg="white" borderRadius="20px" padding="30px" marginTop="80px" border="3px solid" borderColor="#715df1">
       <Flex width="100%" mb={5}>
         <Flex width="100%" justifyContent='center' alignItems="center">
           <Twemoji options={{ className: 'twemoji' }}>
@@ -53,8 +53,9 @@ const Home: NextPage = () => {
         
       </Flex>
       
-      <Flex justifyContent="center">
-        <Button isLoading={clicked} mt={7} onClick={toClassify} fontWeight={900} fontSize="15pt" height="70px" width="250px"color="white" bg="linear-gradient(to right, #b993d6, #8ca6db)">Classify my Watch!</Button>
+      <Flex justifyContent="center" margin="auto" flexDirection="column">
+        {clicked && <Text color="red" fontWeight={700} textAlign="center" mb={-3}>Waiting for login...</Text>}
+        <Button  isLoading={clicked} mt={7} onClick={toClassify} fontWeight={900} fontSize="15pt" height="70px" width="250px"color="white" bg="linear-gradient(to right, #b993d6, #8ca6db)" _hover={{bg: "linear-gradient(to right, #b993e5, #dfa6db)"}}>Classify my Watch!</Button>
         <AuthModal />
       </Flex>
     </Flex>
