@@ -10,7 +10,7 @@ import { auth } from '../firebase/clientApp';
 
 // represents index route/home page
 
-const classify: NextPage = () => {
+const Classify: NextPage = () => {
   const [user] = useAuthState(auth)
 
   const [selectedFile, setSelectedFile] = useState<string>();
@@ -56,4 +56,4 @@ const classify: NextPage = () => {
   )
 }
 
-export default classify
+export default Classify
