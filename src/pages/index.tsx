@@ -12,7 +12,7 @@ import { auth } from '../firebase/clientApp';
 // represents index route/home page
 
 const Home: NextPage = () => {
-  const [user, loading, error] = useAuthState(auth)
+  const [user] = useAuthState(auth)
   const setAuthModalState = useSetRecoilState(authModalState)
   const [clicked, setClicked] = useState(false)
 
