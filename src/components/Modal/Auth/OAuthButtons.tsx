@@ -10,11 +10,11 @@ const OAuthButtons:React.FC = () => {
     return (
         <Flex direction="column" width="100%" mb={4}>
             <Button mb={2} isLoading={loading} onClick={() => signInWithGoogle()}>
-                <Image src="/images/googlelogo.png" height="20px" mr={4} />
+                <Image alt="google" src="/images/googlelogo.png" height="20px" mr={4} />
                 Continue with Google
             </Button>
             <Button mb={2} isLoading={loadingf} onClick={() => signInWithFacebook()}>
-                <Image src="/images/facebook.png" height="20px" mr={4} />
+                <Image alt="facebook" src="/images/facebook.png" height="20px" mr={4} />
                 Continue with Facebook
             </Button>
             {(error || errorf) && <Text>{error?.message || errorf?.message}</Text>}

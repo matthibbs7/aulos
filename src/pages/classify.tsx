@@ -1,11 +1,9 @@
-import { background, Flex, Text, Image, Button } from '@chakra-ui/react'
+import { Flex, Text, Image, Button } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import Router from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import Twemoji from 'react-twemoji';
-import { useSetRecoilState } from 'recoil';
-import { authModalState } from '../atoms/authModalAtom';
 import ImageUpload from '../components/ImageUpload/ImageUpload';
 import AuthModal from '../components/Modal/Auth/AuthModal';
 import { auth } from '../firebase/clientApp';

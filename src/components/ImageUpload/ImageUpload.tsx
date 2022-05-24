@@ -1,8 +1,6 @@
 import { Button, Divider, Flex, Image, Stack, Text } from '@chakra-ui/react';
 import React, { useCallback, useRef, useState } from 'react';
 import * as tf from '@tensorflow/tfjs';
-import { image, model, string } from '@tensorflow/tfjs';
-import { resolve } from 'node:path/win32';
 import toImageElement from './toImageElement';
 import {useDropzone} from 'react-dropzone'
 import Twemoji from 'react-twemoji';
@@ -122,7 +120,7 @@ const ImageUpload:React.FC<ImageUploadProps> = ({ selectedFile, onSelectImage, s
             
             <Flex justifyContent="center" margin="auto" height="400px" maxWidth="700px" width="80%" bg="white" borderRadius="25px">
 
-                <Image alignSelf="center" mb={14} src={selectedFile} maxWidth="250px" maxHeight="200px" mr={5} ml={2} border="5px solid black" />
+                <Image alt="selected file" alignSelf="center" mb={14} src={selectedFile} maxWidth="250px" maxHeight="200px" mr={5} ml={2} border="5px solid black" />
                 <Flex direction="column" alignSelf="center" width="50%" maxWidth="500px">
                     <Flex direction="row" justifyContent="center" alignItems="center" mb={5}>
                     <Twemoji options={{ className: 'twemoji' }}>
@@ -134,7 +132,7 @@ const ImageUpload:React.FC<ImageUploadProps> = ({ selectedFile, onSelectImage, s
                     <Divider />
                     {results.map((p: any) => {
                         return (
-                            <Flex>
+                            <Flex key={p.className}>
                                 <Text fontSize="18pt" display="inline" fontWeight={700}>{p.className}:</Text>
                                 <Text fontSize="18pt" display="inline" marginLeft="auto" mr={5}>{((p.probability) * 100).toFixed(2)}%</Text>
                             </Flex>
@@ -155,7 +153,7 @@ const ImageUpload:React.FC<ImageUploadProps> = ({ selectedFile, onSelectImage, s
             <Flex bg="white" direction="column" width="70%" maxWidth="500px" height="500px" justifyContent="center" margin="auto" borderRadius="25px" border="2px solid" borderColor="#715df1">
                 <Text fontWeight={800} fontSize="20pt" textAlign="center">Image Selected:</Text>
                 <Divider width="250px" justifySelf="center" alignSelf="center" />
-                <Image border="3px solid" mt={5} src={selectedFile} maxWidth="250px" maxHeight="200px" alignSelf="center" />
+                <Image alt="selected file" border="3px solid" mt={5} src={selectedFile} maxWidth="250px" maxHeight="200px" alignSelf="center" />
                 <Flex justifyContent="center" mt={5} >
                     <Button color="white" bg="#715df1" width="200px" height="50px" isLoading={loading} onClick={predictImage} mr={3}>PREDICT!</Button>
                     <Button  width="90px" height="50px" onClick={() => {setSelectedFile(""); setIsResults(false)}}>New Image</Button>
