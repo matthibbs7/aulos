@@ -12,7 +12,6 @@ import { auth } from '../firebase/clientApp';
 
 const Classify: NextPage = () => {
   const [user] = useAuthState(auth)
-
   const [selectedFile, setSelectedFile] = useState<string>();
 
   useEffect(() => {
