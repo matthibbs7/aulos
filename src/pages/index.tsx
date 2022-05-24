@@ -1,17 +1,35 @@
 import { background, Flex, Text, Image, Button, Divider } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import Router from "next/router";
+import { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import Twemoji from 'react-twemoji';
+import { useSetRecoilState } from 'recoil';
+import { authModalState } from '../atoms/authModalAtom';
 import AuthModal from '../components/Modal/Auth/AuthModal';
+import { auth } from '../firebase/clientApp';
 
 // represents index route/home page
 
 const Home: NextPage = () => {
-  const router = useRouter()
+  const [user, loading, error] = useAuthState(auth)
+  const setAuthModalState = useSetRecoilState(authModalState)
+  const [clicked, setClicked] = useState(false)
+
+  useEffect(() => {
+    setAuthModalState({open: false, view: 'login'})
+    if (clicked) {
+      Router.push('classify')
+    }
+  }, [user])
 
   const toClassify = () => {
-    router.push('/classify')
+    setClicked(true)
+    if (!user) {
+      setAuthModalState({open: true, view: 'login'})
+    } else {
+      Router.push('classify')
+    }
   }
 
   return (
@@ -36,7 +54,7 @@ const Home: NextPage = () => {
       </Flex>
       
       <Flex justifyContent="center">
-        <Button mt={7} onClick={toClassify} fontWeight={900} fontSize="15pt" height="70px" width="250px"color="white" bg="linear-gradient(to right, #b993d6, #8ca6db)">Classify my Watch!</Button>
+        <Button isLoading={clicked} mt={7} onClick={toClassify} fontWeight={900} fontSize="15pt" height="70px" width="250px"color="white" bg="linear-gradient(to right, #b993d6, #8ca6db)">Classify my Watch!</Button>
         <AuthModal />
       </Flex>
     </Flex>
