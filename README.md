@@ -43,6 +43,12 @@ Jaeger-LeCoultre, Longines, Panerai, Patek Philippe, Sinn, Tagheuer, Tudor, Zeni
 
 <img src="https://imgur.com/czbUVNs.png" width="700" height="500">
 
+## How Data was Collected
+
+The dataset was collected using a Python script with the Selenium library. Under the DataScraping directory there are two Python scripts:
+* **datascraper.py** - Iterates through 16 brands, for each navigates to chrono24.com and scrapes images for the first 5 pages of results for each brand. Stores the link of the image, price of the watch, and indexes accordingly into a .txt file.
+* **img_downloader.py** - Opens each brands .txt file of the image links and downloads each image link.
+
 ## Live Production Site on Vercel
 
 Since the web application was made using Next.js, there is a live production version on Vercel at  [aulos.vercel.app](https://aulos.vercel.app) from the creators of Next.js.
