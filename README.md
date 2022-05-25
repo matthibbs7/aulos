@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aulos
 
-## Getting Started
+![Imgur Image](https://imgur.com/Q8FFsWG.png)
 
-First, run the development server:
+Aulos is a web application that can identify the brand of a person's wrist watch from an image
+that users upload with **87%** accuracy.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+* Uses an **Azure Custom Vision** model.
+* Trained on 16 popular watch brands [Rolex, Omega, a Lange and Sohne, Audemars Piguet, Breitling, Cartier, Hublot, IWC,
+Jaeger-LeCoultre, Longines, Panerai, Patek Philippe, Sinn, Tagheuer, Tudor, Zenith]
+* The Model was trained on thousands of web-scraped images (~300 per brand) from chrono24 using **Selenium**
+* The website featues login authentication with Firebase and offers **OAuth** with Google and Facebook accounts
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Built with
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+* [React](https://github.com/facebook/react)
+* [TypeScript](https://github.com/microsoft/TypeScript)
+* [Next.js](https://github.com/vercel/next.js/)
+* [Firebase](https://github.com/firebase/)
+* [ChakraUI](https://github.com/chakra-ui/chakra-ui)
+* [Recoil](https://github.com/facebookexperimental/Recoil)
+* [TensorFlowJS](https://github.com/tensorflow/tfjs)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## How It Works
 
-## Learn More
+![Imgur Image](https://imgur.com/cEnEN7K.png)
 
-To learn more about Next.js, take a look at the following resources:
+1. Home page where uers are greeted with a button to 'Classify my watch'. Upon clicking the button, an authentication modal is triggered where they are prompted to either log in or create an account to proceed with image classification tasks.
+   
+<img src="https://imgur.com/xC6ZLTx.png" width="740" height="700">
+   
+2. The modal features OAuth for Google and Facebook accounts and supports regular email/password logins as well.
+   
+ <img src="https://imgur.com/pThq7wd.png" width="700" height="500">
+   
+3. Once users are logged in, the Next router will push them to the /Classify page where they are able to upload an image. The image 'dropzone' allows uers to drag and drop files or click the upload button to prompt the file explorer to open.
+   
+ <img src="https://imgur.com/M3QCKhg.png" width="700" height="500">
+4. Once an image is uploaded users press the 'predict' button and the website will load the premade Azure CV model using TensorFlowJS and predict the brand of the watch. Results are spliced to the top 3 and recentered out of the relative sum (the top 3 will add up to ~100%) and then presented to the user. Users can continue uploading new images of watches by pressing the 'New Classification' button.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* Another sample output with slightly less professional grade image:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<img src="https://imgur.com/czbUVNs.png" width="700" height="500">
 
-## Deploy on Vercel
+## Live Production Site on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Since the web application was made using Next.js, there is a live production version on Vercel at  [aulos.vercel.app](https://aulos.vercel.app) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
