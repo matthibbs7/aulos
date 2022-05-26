@@ -11,6 +11,8 @@ Jaeger-LeCoultre, Longines, Panerai, Patek Philippe, Sinn, Tagheuer, Tudor, Zeni
 * The Model was trained on thousands of web-scraped images (~300 per brand) from chrono24 using **Selenium**
 * The website featues login authentication with Firebase and offers **OAuth** with Google and Facebook accounts
 
+* [Live Production: https://aulos.vercel.app](https://aulos.vercel.app)
+
 ## Built with
 
 * [React](https://github.com/facebook/react)
